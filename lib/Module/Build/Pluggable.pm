@@ -1,8 +1,8 @@
 package Module::Build::Pluggable;
 use strict;
 use warnings;
-use 5.010001;
-our $VERSION = '0.01';
+use 5.008001;
+our $VERSION = '0.02';
 use Module::Build;
 
 our $SUBCLASS;
@@ -36,6 +36,7 @@ sub _author_requires {
     for my $mod (@devmods) {
         ## no critic.
         eval qq{require $mod} or push @not_available, $mod;
+        # need to diag $@ if an error message is not "Can't locate..."?
     }
     if (@not_available) {
         print qq{# The following modules are not available.\n};
