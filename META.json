@@ -1,0 +1,80 @@
+{
+   "abstract" : "Module::Build meets plugins",
+   "author" : [
+      "Tokuhiro Matsuno E<lt>tokuhirom AAJKLFJEF@ GMAIL COME<gt>"
+   ],
+   "dynamic_config" : 0,
+   "generated_by" : "Module::Build version 0.4003, CPAN::Meta::Converter version 2.120921",
+   "license" : [
+      "perl_5"
+   ],
+   "meta-spec" : {
+      "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+      "version" : "2"
+   },
+   "name" : "Module-Build-Pluggable",
+   "no_index" : {
+      "directory" : [
+         "inc"
+      ]
+   },
+   "prereqs" : {
+      "build" : {
+         "requires" : {
+            "Test::More" : "0.98",
+            "Test::Requires" : "0"
+         }
+      },
+      "configure" : {
+         "requires" : {
+            "Module::Build" : "0.38"
+         }
+      },
+      "runtime" : {
+         "requires" : {
+            "Class::Accessor::Lite" : "0",
+            "Class::Method::Modifiers" : "0",
+            "Data::OptList" : "0",
+            "Devel::PPPort" : "3.19",
+            "Module::Build" : "0.38",
+            "Module::Load" : "0",
+            "Pod::Markdown" : "0",
+            "parent" : "0",
+            "perl" : "5.008001"
+         }
+      }
+   },
+   "provides" : {
+      "Module::Build::Pluggable" : {
+         "file" : "lib/Module/Build/Pluggable.pm",
+         "version" : "0.01"
+      },
+      "Module::Build::Pluggable::Base" : {
+         "file" : "lib/Module/Build/Pluggable/Base.pm",
+         "version" : 0
+      },
+      "Module::Build::Pluggable::PPPort" : {
+         "file" : "lib/Module/Build/Pluggable/PPPort.pm",
+         "version" : "0.01"
+      },
+      "Module::Build::Pluggable::ReadmeMarkdownFromPod" : {
+         "file" : "lib/Module/Build/Pluggable/ReadmeMarkdownFromPod.pm",
+         "version" : "0.01"
+      },
+      "Module::Build::Pluggable::Repository" : {
+         "file" : "lib/Module/Build/Pluggable/Repository.pm",
+         "version" : "0.01"
+      },
+      "Module::Build::Pluggable::Util" : {
+         "file" : "lib/Module/Build/Pluggable/Util.pm",
+         "version" : 0
+      }
+   },
+   "release_status" : "stable",
+   "resources" : {
+      "license" : [
+         "http://dev.perl.org/licenses/"
+      ]
+   },
+   "version" : "0.01"
+}
