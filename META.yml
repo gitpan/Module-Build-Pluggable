@@ -20,13 +20,10 @@ no_index:
 provides:
   Module::Build::Pluggable:
     file: lib/Module/Build/Pluggable.pm
-    version: 0.02
+    version: 0.03
   Module::Build::Pluggable::Base:
     file: lib/Module/Build/Pluggable/Base.pm
     version: 0
-  Module::Build::Pluggable::PPPort:
-    file: lib/Module/Build/Pluggable/PPPort.pm
-    version: 0.01
   Module::Build::Pluggable::Repository:
     file: lib/Module/Build/Pluggable/Repository.pm
     version: 0.01
@@ -40,16 +37,14 @@ requires:
   Class::Accessor::Lite: 0
   Class::Method::Modifiers: 0
   Data::OptList: 0
-  Devel::PPPort: 3.19
   File::Basename: 0
   File::Path: 0
   File::Temp: 0
   Module::Build: 0.38
   Module::Load: 0
-  Pod::Markdown: 0
   Test::SharedFork: 0
   parent: 0
   perl: 5.008001
 resources:
   license: http://dev.perl.org/licenses/
-version: 0.02
+version: 0.03
