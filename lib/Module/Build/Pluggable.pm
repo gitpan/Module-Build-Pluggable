@@ -2,7 +2,7 @@ package Module::Build::Pluggable;
 use strict;
 use warnings;
 use 5.008001;
-our $VERSION = '0.03';
+our $VERSION = '0.04';
 use Module::Build;
 
 our $SUBCLASS;
@@ -72,7 +72,9 @@ sub _mkpluginname {
 
 sub new {
     my $class = shift;
-    my $builder = $SUBCLASS->new(@_);
+    my %args = @_;
+    $class->call_triggers_all('prepare', undef, $OPTIONS, \%args);
+    my $builder = $SUBCLASS->new(%args);
     my $self = bless { builder => $builder }, $class;
     $self->_init();
     $self->call_triggers_all('configure', $builder, $OPTIONS);
@@ -95,21 +97,21 @@ sub _init {
 }
 
 sub call_triggers_all {
-    my ($class, $type, $builder, $options) =@_;
+    my ($class, $type, $builder, $options, $args) =@_;
     for my $opt (@$options) {
         my ($module, $opts) = @$opt;
-        $class->call_trigger($type, $builder, $module, $opts);
+        $class->call_trigger($type, $builder, $module, $opts, $args);
     }
 }
 
 sub call_trigger {
-    my ($class, $type, $builder, $module, $opts) =@_;
+    my ($class, $type, $builder, $module, $opts, $args) =@_;
 
     Module::Load::load($module);
     my $plugin = $module->new(builder => $builder, %{ $opts || +{} });
     my $method = "HOOK_$type";
     if ($plugin->can($method)) {
-        $plugin->$method();
+        $plugin->$method($args);
     }
 }
 
@@ -150,7 +152,7 @@ Module::Build::Pluggable adds pluggability for Module::Build.
 
 =head1 HOW CAN I WRITE MY OWN PLUGIN?
 
-Module::Build::Pluggable call B<HOOK_configure> on configuration step, and B<HOOK_build> on build step.
+Module::Build::Pluggable call B<HOOK_prepare> on preparing arguments for C<< Module::Build->new >>, B<HOOK_configure> on configuration step, and B<HOOK_build> on build step.
 
 That's all.
 

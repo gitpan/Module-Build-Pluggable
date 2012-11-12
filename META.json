@@ -49,7 +49,7 @@
    "provides" : {
       "Module::Build::Pluggable" : {
          "file" : "lib/Module/Build/Pluggable.pm",
-         "version" : "0.03"
+         "version" : "0.04"
       },
       "Module::Build::Pluggable::Base" : {
          "file" : "lib/Module/Build/Pluggable/Base.pm",
@@ -74,5 +74,5 @@
          "http://dev.perl.org/licenses/"
       ]
    },
-   "version" : "0.03"
+   "version" : "0.04"
 }
