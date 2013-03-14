@@ -20,7 +20,7 @@ no_index:
 provides:
   Module::Build::Pluggable:
     file: lib/Module/Build/Pluggable.pm
-    version: 0.07
+    version: 0.08
   Module::Build::Pluggable::Base:
     file: lib/Module/Build/Pluggable/Base.pm
     version: 0
@@ -50,4 +50,4 @@ requires:
   perl: 5.008001
 resources:
   license: http://dev.perl.org/licenses/
-version: 0.07
+version: 0.08
