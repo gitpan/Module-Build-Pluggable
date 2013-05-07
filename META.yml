@@ -1,14 +1,15 @@
 ---
 abstract: 'Module::Build meets plugins'
 author:
-  - 'Tokuhiro Matsuno E<lt>tokuhirom AAJKLFJEF@ GMAIL COME<gt>'
+  - 'Tokuhiro Matsuno <tokuhirom AAJKLFJEF@ GMAIL COM>'
 build_requires:
   Test::More: 0.98
-  Test::Requires: 0
 configure_requires:
+  CPAN::Meta: 0
+  CPAN::Meta::Prereqs: 0
   Module::Build: 0.38
 dynamic_config: 0
-generated_by: 'Module::Build version 0.4003, CPAN::Meta::Converter version 2.120921'
+generated_by: 'Minilla/v0.4.0, CPAN::Meta::Converter version 2.120921'
 license: perl
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
@@ -16,11 +17,17 @@ meta-spec:
 name: Module-Build-Pluggable
 no_index:
   directory:
+    - t
+    - xt
     - inc
+    - share
+    - eg
+    - examples
+    - author
 provides:
   Module::Build::Pluggable:
     file: lib/Module/Build/Pluggable.pm
-    version: 0.09
+    version: 0.10
   Module::Build::Pluggable::Base:
     file: lib/Module/Build/Pluggable/Base.pm
     version: 0
@@ -29,7 +36,7 @@ provides:
     version: 0
   Module::Build::Pluggable::Repository:
     file: lib/Module/Build/Pluggable/Repository.pm
-    version: 0.01
+    version: 0.10
   Module::Build::Pluggable::Util:
     file: lib/Module/Build/Pluggable/Util.pm
     version: 0
@@ -49,5 +56,9 @@ requires:
   parent: 0
   perl: 5.008001
 resources:
-  license: http://dev.perl.org/licenses/
-version: 0.09
+  bugtracker: https://github.com/tokuhirom/Module-Build-Pluggable/issues
+  homepage: https://github.com/tokuhirom/Module-Build-Pluggable
+  repository: git://github.com/tokuhirom/Module-Build-Pluggable.git
+version: 0.10
+x_contributors:
+  - 'tokuhirom <tokuhirom@gmail.com>'

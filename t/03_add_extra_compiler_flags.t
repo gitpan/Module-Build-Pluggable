@@ -8,7 +8,9 @@ use File::Path;
 use Test::Module::Build::Pluggable;
 
 subtest 'Module::Build::Pluggable::Base#add_extra_compiler_flags' => sub {
-    my $test = Test::Module::Build::Pluggable->new();
+    my $test = Test::Module::Build::Pluggable->new(
+        cleanup => $ENV{DEBUG} ? 0 : 1,
+    );
 
     $test->write_plugin('Module::Build::Pluggable::Extra', <<'...');
 package Module::Build::Pluggable::Extra;
@@ -44,6 +46,8 @@ my $builder = Module::Build::Pluggable->new(
 );
 $builder->create_build_script();
 ...
+
+    $test->write_file('MANIFEST', join("\n", qw(MANIFEST)));
     $test->run_build_pl();
     my $params = $test->read_file('_build/build_params');
     like($params, qr/-Wall/, 'added extra compiler flags');
